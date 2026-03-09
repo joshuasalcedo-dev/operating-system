@@ -24,6 +24,7 @@ class DefaultHardwareAPI implements HardwareAPI {
 	private final NetworkInterfaceAPI networkInterfaceAPI;
 	private final ProcessorAPI processorAPI;
 	private final SoundCardAPI soundCardAPI;
+	private final PowerSourceAPI powerSourceAPI;
 	private final UsbDeviceAPI usbDeviceAPI;
 	private final ComputerSystemAPI computerSystemAPI;
 
@@ -35,6 +36,7 @@ class DefaultHardwareAPI implements HardwareAPI {
 		this.graphicsCardAPI = new OshiGraphicsCardAPI(systemInfo);
 		this.memoryAPI = new OshiMemoryAPI(systemInfo);
 		this.networkInterfaceAPI = new OshiNetworkInterfaceAPI(systemInfo);
+		this.powerSourceAPI = new OshiPowerSourceAPI(systemInfo);
 		this.processorAPI = new OshiProcessorAPI(systemInfo);
 		this.soundCardAPI = new OshiSoundCardAPI(systemInfo);
 		this.usbDeviceAPI = new OshiUsbDeviceAPI(systemInfo);
@@ -78,6 +80,11 @@ class DefaultHardwareAPI implements HardwareAPI {
 	@Override
 	public List<ProcessorInfo.CacheInfo> getCaches(ProcessorInfo processor, int level) {
 		return processorAPI.getCaches(processor, level);
+	}
+
+	@Override
+	public List<PowerSourceInfo> getPowerSources() {
+		return powerSourceAPI.getPowerSources();
 	}
 
 	@Override

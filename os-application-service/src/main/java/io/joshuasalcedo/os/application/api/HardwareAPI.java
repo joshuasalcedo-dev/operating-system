@@ -22,6 +22,7 @@ public interface HardwareAPI {
 
 	/** Returns caches for a given processor filtered by cache level (1, 2, 3). */
 	List<ProcessorInfo.CacheInfo> getCaches(ProcessorInfo processor, int level);
+	List<PowerSourceInfo> getPowerSources();
 	List<SoundCardInfo> getSoundCardInfo();
 	List<UsbDeviceInfo> getUsbDeviceInfo();
 	ComputerSystemInfo getComputerSystemInfo();

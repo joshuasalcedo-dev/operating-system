@@ -124,7 +124,4 @@ interface DiskAPI {
                 .max(java.util.Comparator.comparingLong(DiskInfo::writeBytes));
     }
 
-    static DiskAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiDiskAPI(systemInfo);
-    }
 }

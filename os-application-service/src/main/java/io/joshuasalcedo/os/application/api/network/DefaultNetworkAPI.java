@@ -2,7 +2,6 @@ package io.joshuasalcedo.os.application.api.network;
 
 import io.joshuasalcedo.os.application.api.NetworkAPI;
 import io.joshuasalcedo.os.domain.network.*;
-import oshi.SystemInfo;
 
 import java.util.List;
 
@@ -23,13 +22,13 @@ class DefaultNetworkAPI implements NetworkAPI {
 	private final PublicIpAPI publicIpAPI;
 
 	DefaultNetworkAPI() {
-		SystemInfo systemInfo = new SystemInfo();
-		this.dnsConfigurationAPI = DnsConfigurationAPI.oshi(systemInfo);
-		this.internetProtocolStatsAPI = InternetProtocolStatsAPI.oshi(systemInfo);
-		this.listeningPortAPI = ListeningPortAPI.oshi(systemInfo);
-		this.networkRouteAPI = NetworkRouteAPI.oshi(systemInfo);
-		this.tcpConnectionAPI = TcpConnectionAPI.oshi(systemInfo);
-		this.udpConnectionAPI = UdpConnectionAPI.oshi(systemInfo);
+		var systemInfo = new oshi.SystemInfo();
+		this.dnsConfigurationAPI = new OshiDnsConfigurationAPI(systemInfo);
+		this.internetProtocolStatsAPI = new OshiInternetProtocolStatsAPI(systemInfo);
+		this.listeningPortAPI = new OshiListeningPortAPI(systemInfo);
+		this.networkRouteAPI = new OshiNetworkRouteAPI(systemInfo);
+		this.tcpConnectionAPI = new OshiTcpConnectionAPI(systemInfo);
+		this.udpConnectionAPI = new OshiUdpConnectionAPI(systemInfo);
 		publicIpAPI = new IpInfoIoPublicIpAPI();
 	}
 

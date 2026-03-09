@@ -1,8 +1,10 @@
 package io.joshuasalcedo.os.application.api;
 
-import io.joshuasalcedo.os.domain.ssh.*;
+import io.joshuasalcedo.os.domain.ssh.SshAuthorizedKeys;
+import io.joshuasalcedo.os.domain.ssh.SshException;
+import io.joshuasalcedo.os.domain.ssh.SshHost;
+import io.joshuasalcedo.os.domain.ssh.SshPublicKey;
 
-import java.nio.file.Path;
 import java.time.Duration;
 import java.util.List;
 import java.util.Optional;

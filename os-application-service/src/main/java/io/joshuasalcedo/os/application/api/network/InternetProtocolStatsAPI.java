@@ -104,7 +104,4 @@ interface InternetProtocolStatsAPI {
         return tcpInErrors() > 0 || udpReceiveErrors() > 0 || connectionFailures() > 0;
     }
 
-    static InternetProtocolStatsAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiInternetProtocolStatsAPI(systemInfo);
-    }
 }

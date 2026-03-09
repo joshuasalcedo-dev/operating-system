@@ -119,10 +119,6 @@ interface OperatingSystemAPI {
 
     // ── Environment detection ──────────────────────────────────────────────
 
-    static OperatingSystemAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiOperatingSystemAPI(systemInfo);
-    }
-
     /**
      * Detects the current {@link OSEnvironment} (physical, VM, container, WSL)
      * using the given system metadata.

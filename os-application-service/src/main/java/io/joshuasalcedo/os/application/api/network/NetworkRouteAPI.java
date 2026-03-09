@@ -86,7 +86,4 @@ interface NetworkRouteAPI {
                 .min(java.util.Comparator.comparingInt(NetworkRoute::metric));
     }
 
-    static NetworkRouteAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiNetworkRouteAPI(systemInfo);
-    }
 }

@@ -76,7 +76,4 @@ interface SoundCardAPI {
         return driverVersions().size() <= 1;
     }
 
-    static SoundCardAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiSoundCardAPI(systemInfo);
-    }
 }

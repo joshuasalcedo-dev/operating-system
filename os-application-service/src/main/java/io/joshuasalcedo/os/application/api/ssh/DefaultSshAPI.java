@@ -6,7 +6,6 @@ import io.joshuasalcedo.os.application.api.ssh.host.SshHostAPI;
 import io.joshuasalcedo.os.domain.ssh.SshAuthorizedKeys;
 import io.joshuasalcedo.os.domain.ssh.SshHost;
 
-import java.time.Duration;
 import java.util.List;
 
 /**

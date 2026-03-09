@@ -98,7 +98,4 @@ interface UdpConnectionAPI {
         return getEndpoints().size();
     }
 
-    static UdpConnectionAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiUdpConnectionAPI(systemInfo);
-    }
 }

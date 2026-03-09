@@ -98,7 +98,4 @@ interface GraphicsCardAPI {
                 .toList();
     }
 
-    static GraphicsCardAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiGraphicsCardAPI(systemInfo);
-    }
 }

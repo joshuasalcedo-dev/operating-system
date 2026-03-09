@@ -66,7 +66,4 @@ interface DisplayAPI {
                 .orElse(false);
     }
 
-    static DisplayAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiDisplayAPI(systemInfo);
-    }
 }

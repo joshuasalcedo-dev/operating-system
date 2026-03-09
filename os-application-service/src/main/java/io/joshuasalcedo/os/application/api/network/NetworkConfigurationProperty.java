@@ -8,10 +8,11 @@ class NetworkConfigurationProperty {
 
 	private boolean enabled = false;
 
-	public boolean enabled() {
-		return enabled;
-	}
 	public boolean isEnabled() {
 		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }

@@ -125,7 +125,4 @@ interface ProcessorAPI {
                 .findFirst();
     }
 
-    static ProcessorAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiProcessorAPI(systemInfo);
-    }
 }

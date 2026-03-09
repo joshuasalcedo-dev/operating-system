@@ -3,9 +3,7 @@ package io.joshuasalcedo.os.application.api.hardware;
 
 import io.joshuasalcedo.os.application.api.HardwareAPI;
 import io.joshuasalcedo.os.domain.hardware.*;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import oshi.SystemInfo;
 
 import java.util.List;
 
@@ -29,17 +27,17 @@ class DefaultHardwareAPI implements HardwareAPI {
 	private final UsbDeviceAPI usbDeviceAPI;
 	private final ComputerSystemAPI computerSystemAPI;
 
-	DefaultHardwareAPI(ComputerSystemAPI computerSystemAPI) {
-		this.computerSystemAPI = computerSystemAPI;
-		SystemInfo systemInfo = new SystemInfo();
-		this.diskAPI = DiskAPI.oshi(systemInfo);
-		this.displayAPI = DisplayAPI.oshi(systemInfo);
-		 this.graphicsCardAPI = GraphicsCardAPI.oshi(systemInfo);
-		 this.memoryAPI = MemoryAPI.oshi(systemInfo);
-		 this.networkInterfaceAPI = NetworkInterfaceAPI.oshi(systemInfo);
-		 this.processorAPI = ProcessorAPI.oshi(systemInfo);
-		 this.soundCardAPI = SoundCardAPI.oshi(systemInfo);
-		 this.usbDeviceAPI = UsbDeviceAPI.oshi(systemInfo);
+	DefaultHardwareAPI() {
+		var systemInfo = new oshi.SystemInfo();
+		this.computerSystemAPI = new OshiComputerSystemAPI(systemInfo);
+		this.diskAPI = new OshiDiskAPI(systemInfo);
+		this.displayAPI = new OshiDisplayAPI(systemInfo);
+		this.graphicsCardAPI = new OshiGraphicsCardAPI(systemInfo);
+		this.memoryAPI = new OshiMemoryAPI(systemInfo);
+		this.networkInterfaceAPI = new OshiNetworkInterfaceAPI(systemInfo);
+		this.processorAPI = new OshiProcessorAPI(systemInfo);
+		this.soundCardAPI = new OshiSoundCardAPI(systemInfo);
+		this.usbDeviceAPI = new OshiUsbDeviceAPI(systemInfo);
 	}
 
 

@@ -4,8 +4,6 @@ import io.joshuasalcedo.os.domain.Manufacturer;
 import io.joshuasalcedo.os.domain.SerialNumber;
 import io.joshuasalcedo.os.domain.computer.PhysicalComputerId;
 
-import java.util.Objects;
-
 /**
  * Value object representing the overall computer system.
  */

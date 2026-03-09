@@ -123,7 +123,4 @@ interface MemoryAPI {
         return getMemory().modulesByManufacturer(manufacturer);
     }
 
-    static MemoryAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiMemoryAPI(systemInfo);
-    }
 }

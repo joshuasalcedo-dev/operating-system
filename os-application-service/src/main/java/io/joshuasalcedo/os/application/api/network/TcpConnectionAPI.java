@@ -148,7 +148,4 @@ interface TcpConnectionAPI {
                 .anyMatch(c -> c.remoteAddress().ip().equals(remoteIp));
     }
 
-    static TcpConnectionAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiTcpConnectionAPI(systemInfo);
-    }
 }

@@ -119,7 +119,4 @@ interface UsbDeviceAPI {
         return findByVidPid(vendorId, productId).isPresent();
     }
 
-    static UsbDeviceAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiUsbDeviceAPI(systemInfo);
-    }
 }

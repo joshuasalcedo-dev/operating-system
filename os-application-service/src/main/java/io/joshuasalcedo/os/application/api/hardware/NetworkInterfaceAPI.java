@@ -139,7 +139,4 @@ interface NetworkInterfaceAPI {
                 .max(java.util.Comparator.comparingLong(NetworkInterfaceInfo::bytesSent));
     }
 
-    static NetworkInterfaceAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiNetworkInterfaceAPI(systemInfo);
-    }
 }

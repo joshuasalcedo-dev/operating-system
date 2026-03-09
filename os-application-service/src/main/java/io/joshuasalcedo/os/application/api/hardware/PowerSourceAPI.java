@@ -113,7 +113,4 @@ interface PowerSourceAPI {
                 .toList();
     }
 
-    static PowerSourceAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiPowerSourceAPI(systemInfo);
-    }
 }

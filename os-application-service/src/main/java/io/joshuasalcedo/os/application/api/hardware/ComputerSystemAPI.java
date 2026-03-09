@@ -3,7 +3,6 @@ package io.joshuasalcedo.os.application.api.hardware;
 import io.joshuasalcedo.os.domain.Manufacturer;
 import io.joshuasalcedo.os.domain.SerialNumber;
 import io.joshuasalcedo.os.domain.hardware.ComputerSystemInfo;
-import oshi.SystemInfo;
 import oshi.hardware.Baseboard;
 import oshi.hardware.ComputerSystem;
 import oshi.hardware.Firmware;
@@ -86,15 +85,6 @@ interface ComputerSystemAPI {
         return Optional.empty();
     }
 
-    // ── Factory ───────────────────────────────────────────────────────────────
-
-    static ComputerSystemAPI createDefault() {
-        return new OshiComputerSystemAPI(new SystemInfo());
-    }
-
-    static ComputerSystemAPI createDefault(SystemInfo systemInfo) {
-        return new OshiComputerSystemAPI(systemInfo);
-    }
 }
 
 // ── OSHI Implementation ───────────────────────────────────────────────────────
@@ -104,9 +94,9 @@ interface ComputerSystemAPI {
  */
 class OshiComputerSystemAPI implements ComputerSystemAPI {
 
-    private final SystemInfo systemInfo;
+    private final oshi.SystemInfo systemInfo;
 
-    OshiComputerSystemAPI(SystemInfo systemInfo) {
+    OshiComputerSystemAPI(oshi.SystemInfo systemInfo) {
         this.systemInfo = systemInfo;
     }
 

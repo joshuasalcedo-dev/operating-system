@@ -2,6 +2,7 @@ package io.joshuasalcedo.os.application.api.network;
 
 import io.joshuasalcedo.os.domain.network.NetworkRoute;
 import oshi.SystemInfo;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;

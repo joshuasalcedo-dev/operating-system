@@ -85,7 +85,4 @@ interface DnsConfigurationAPI {
                 .anyMatch(d -> d.equalsIgnoreCase(domain));
     }
 
-    static DnsConfigurationAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiDnsConfigurationAPI(systemInfo);
-    }
 }

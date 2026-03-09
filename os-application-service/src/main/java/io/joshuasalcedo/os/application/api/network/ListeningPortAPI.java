@@ -143,7 +143,4 @@ interface ListeningPortAPI {
                 .collect(Collectors.toSet());
     }
 
-    static ListeningPortAPI oshi(oshi.SystemInfo systemInfo) {
-        return new OshiListeningPortAPI(systemInfo);
-    }
 }

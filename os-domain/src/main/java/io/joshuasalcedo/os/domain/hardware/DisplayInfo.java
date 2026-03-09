@@ -8,6 +8,11 @@ public record DisplayInfo(
         String edid
 ) implements OSHardwareObject {
 
+    /** True if this display has EDID data available. */
+    public boolean hasEdid() {
+        return edid != null && !edid.isBlank();
+    }
+
     @Override
     public String toString() {
         return String.format("Display %d", index);

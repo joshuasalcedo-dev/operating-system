@@ -6,19 +6,7 @@ package io.joshuasalcedo.os.domain.hardware;
  * @author JoshuaSalcedo
  * @since 3/7/2026
  */
-public sealed interface OSHardwareObject permits
-	ComputerSystemInfo,
-	DeviceStatus,
-	DeviceType,
-	DiskInfo,
-	DisplayInfo,
-	GraphicsCardInfo,
-	MemoryInfo,
-	NetworkInterfaceInfo,
-	OperatingSystemInfo,
-	PowerSourceInfo,
-	ProcessorInfo,
-	SoundCardInfo,
-	UsbDeviceInfo
+public  interface OSHardwareObject
+
 	{
 }

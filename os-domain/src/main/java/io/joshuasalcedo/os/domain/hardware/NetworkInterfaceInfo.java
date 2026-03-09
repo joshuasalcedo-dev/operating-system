@@ -29,6 +29,27 @@ public record NetworkInterfaceInfo(
         ipv6Addresses = ipv6Addresses != null ? Collections.unmodifiableList(ipv6Addresses) : List.of();
     }
 
+    /** True if this interface appears active (speed > 0 and has an IP address). */
+    public boolean isActive() {
+        return speed > 0 && !ipv4Addresses.isEmpty();
+    }
+
+    /** True if this interface is a loopback interface. */
+    public boolean isLoopback() {
+        return name.startsWith("lo") ||
+               ipv4Addresses.stream().anyMatch(ip -> ip.startsWith("127."));
+    }
+
+    /** True if this interface is running at gigabit (1 Gbps) or faster. */
+    public boolean isGigabit() {
+        return speed >= 1_000_000_000L;
+    }
+
+    /** True if this interface has any inbound or outbound errors. */
+    public boolean hasErrors() {
+        return inErrors > 0 || outErrors > 0;
+    }
+
     public String speedFormatted() {
         if (speed <= 0) return "N/A";
         if (speed >= 1_000_000_000L) {

@@ -26,6 +26,16 @@ public record UsbDeviceInfo(
         connectedDevices = connectedDevices != null ? Collections.unmodifiableList(connectedDevices) : List.of();
     }
 
+    /** True if this device has child devices connected (i.e. it's a hub). */
+    public boolean isHub() {
+        return !connectedDevices.isEmpty();
+    }
+
+    /** True if this is a leaf device with no children (actual peripheral). */
+    public boolean isLeafDevice() {
+        return connectedDevices.isEmpty();
+    }
+
     @Override
     public String toString() {
         return String.format("%s (%s) [%s:%s]", name, manufacturer, vendorId, productId);

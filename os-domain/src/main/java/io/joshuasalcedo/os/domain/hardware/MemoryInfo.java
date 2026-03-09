@@ -39,6 +39,75 @@ public record MemoryInfo(
         return formatBytes(availablePhysical);
     }
 
+    /** True if used memory exceeds the given threshold percentage (e.g. 90.0 for 90%). */
+    public boolean isUnderPressure(double thresholdPercent) {
+        return usagePercent() >= thresholdPercent;
+    }
+
+    /** True if memory usage is critically high (above 90%). */
+    public boolean isCritical() {
+        return isUnderPressure(90.0);
+    }
+
+    /** True if any swap is currently being used. */
+    public boolean isSwapping() {
+        return swapUsed > 0;
+    }
+
+    /** Swap usage as a percentage (0–100). */
+    public double swapUsagePercent() {
+        return swapTotal > 0 ? 100.0 * swapUsed / swapTotal : 0.0;
+    }
+
+    /** Number of memory modules installed. */
+    public int moduleCount() {
+        return modules.size();
+    }
+
+    /** All distinct memory types present (e.g. DDR4, DDR5). */
+    public List<String> memoryTypes() {
+        return modules.stream()
+                .map(PhysicalMemoryModule::memoryType)
+                .distinct()
+                .toList();
+    }
+
+    /** All distinct clock speeds present across modules, in Hz. */
+    public List<Long> clockSpeeds() {
+        return modules.stream()
+                .map(PhysicalMemoryModule::clockSpeed)
+                .distinct()
+                .sorted()
+                .toList();
+    }
+
+    /** True if modules are running at different clock speeds (mismatched kit). */
+    public boolean hasMismatchedSpeeds() {
+        return clockSpeeds().size() > 1;
+    }
+
+    /** Total capacity of all installed modules in bytes. */
+    public long totalModuleCapacity() {
+        return modules.stream()
+                .mapToLong(PhysicalMemoryModule::capacity)
+                .sum();
+    }
+
+    /** Find a module by its bank label (e.g. "ChannelA-DIMM0"). */
+    public java.util.Optional<PhysicalMemoryModule> findModuleByBank(String bankLabel) {
+        return modules.stream()
+                .filter(m -> m.bankLabel().equalsIgnoreCase(bankLabel))
+                .findFirst();
+    }
+
+    /** Modules from a specific manufacturer. */
+    public List<PhysicalMemoryModule> modulesByManufacturer(String manufacturer) {
+        return modules.stream()
+                .filter(m -> m.manufacturer() != null &&
+                             m.manufacturer().toString().equalsIgnoreCase(manufacturer))
+                .toList();
+    }
+
     /**
      * Value object for individual physical memory sticks/modules.
      */

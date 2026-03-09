@@ -1,0 +1,1 @@
+tagSearchIndex = [{"l":"Sealed Interfaces","h":"package io.joshuasalcedo.os.domain","k":"16","u":"io/joshuasalcedo/os/domain/package-summary.html#sealed-interfaces-heading"},{"l":"Serialized Form","h":"","k":"18","u":"serialized-form.html"}];updateSearchResults();

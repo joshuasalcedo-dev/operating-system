@@ -41,6 +41,37 @@ public record ProcessorInfo(
         return formatHertz(maxFrequency);
     }
 
+    /** True if the max frequency is higher than the vendor base frequency (boost/turbo capable). */
+    public boolean isBoostCapable() {
+        return maxFrequency > vendorFrequency;
+    }
+
+    /** True if this processor reports more logical processors than physical cores (HyperThreading / SMT). */
+    public boolean isHyperThreaded() {
+        return logicalProcessors > physicalCores;
+    }
+
+    /** All caches at the given level (1, 2, or 3). */
+    public List<CacheInfo> cachesAtLevel(int level) {
+        return caches.stream()
+                .filter(c -> c.level() == level)
+                .toList();
+    }
+
+    /** All NUMA nodes present on this processor. */
+    public List<Integer> numaNodes() {
+        return topology.stream()
+                .map(CoreTopology::numaNode)
+                .distinct()
+                .sorted()
+                .toList();
+    }
+
+    /** True if this processor has more than one NUMA node. */
+    public boolean isNuma() {
+        return numaNodes().size() > 1;
+    }
+
     private static String formatHertz(long hertz) {
         if (hertz <= 0) return "N/A";
         if (hertz >= 1_000_000_000L) {

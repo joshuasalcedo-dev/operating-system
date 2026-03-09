@@ -1,0 +1,51 @@
+{
+  "groups": [
+    {
+      "name": "os.hardware",
+      "type": "io.joshuasalcedo.os.application.api.hardware.HardwareConfigurationProperty",
+      "description": "Configuration properties for the HardwareAPI."
+    },
+    {
+      "name": "os.network",
+      "type": "io.joshuasalcedo.os.application.api.network.NetworkConfigurationProperty",
+      "description": "Configuration properties for the NetworkAPI."
+    },
+    {
+      "name": "os.operating-system",
+      "type": "io.joshuasalcedo.os.application.api.os.OsConfigurationProperty",
+      "description": "Configuration properties for the OsAPI."
+    },
+    {
+      "name": "os.ssh",
+      "type": "io.joshuasalcedo.os.application.api.ssh.SshConfigurationProperty",
+      "description": "Configuration properties for the SshAPI."
+    }
+  ],
+  "properties": [
+    {
+      "name": "os.hardware.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable the HardwareAPI bean (processor, memory, disk, display, GPU, USB, sound card, network interface, power source, computer system).",
+      "defaultValue": false
+    },
+    {
+      "name": "os.network.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable the NetworkAPI bean (DNS, IP stats, listening ports, routes, TCP/UDP connections, public IP).",
+      "defaultValue": false
+    },
+    {
+      "name": "os.operating-system.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable the OsAPI bean (OS info, environment detection, environment variables, aliases).",
+      "defaultValue": false
+    },
+    {
+      "name": "os.ssh.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable the SshAPI bean (remote command execution, file transfer, authorized_keys management). Requires SSHJ on the classpath.",
+      "defaultValue": false
+    }
+  ],
+  "hints": []
+}

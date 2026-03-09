@@ -27,6 +27,26 @@ public record PowerSourceInfo(
         return String.format(Locale.ROOT, "%.1f%%", remainingCapacityPercent * 100);
     }
 
+    /** True if this battery is critically low (below 10%). */
+    public boolean isCriticallyLow() {
+        return remainingCapacityPercent < 0.10;
+    }
+
+    /** True if this battery is low (below 20%). */
+    public boolean isLow() {
+        return remainingCapacityPercent < 0.20;
+    }
+
+    /** True if this battery is fully charged (>= 99%). */
+    public boolean isFullyCharged() {
+        return remainingCapacityPercent >= 0.99;
+    }
+
+    /** True if the time remaining estimate is still being calculated. */
+    public boolean isCalculatingTimeRemaining() {
+        return timeRemainingEstimated < 0;
+    }
+
     public String timeRemainingFormatted() {
         if (timeRemainingEstimated < 0) return "Calculating...";
         long seconds = (long) timeRemainingEstimated;

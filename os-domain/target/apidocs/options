@@ -1,0 +1,22 @@
+-encoding
+'UTF-8'
+-protected
+--release
+17
+-sourcepath
+'C:/Users/JoshuaSalcedo/IdeaProjects/new/parent-domain/library/operating-system/os-domain/src/main/java;C:/Users/JoshuaSalcedo/IdeaProjects/new/parent-domain/library/operating-system/os-domain/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/JoshuaSalcedo/IdeaProjects/new/parent-domain/library/operating-system/os-domain/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'os-domain 1.0.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'os-domain 1.0.0-SNAPSHOT API'

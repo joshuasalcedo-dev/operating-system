@@ -6,17 +6,7 @@ package io.joshuasalcedo.os.domain.network;
  * @author JoshuaSalcedo
  * @since 3/7/2026
  */
-public sealed interface OSNetworkObject permits
-	ConnectionState,
-	DnsConfiguration,
-	InternetProtocolStats,
-	ListeningPort,
-	NetworkRoute,
-	NetworkSnapshot,
-	PublicIpInfo,
-	SocketAddress,
-	TcpConnection,
-	TransportProtocol,
-	UdpConnection
+public  interface OSNetworkObject
+
 	{
 }

@@ -5,10 +5,7 @@ package io.joshuasalcedo.os.domain;
  * @author JoshuaSalcedo
  * @since 3/7/2026 7:14 PM
  */
-public sealed interface OperatingSystemObject permits
-	MachineId,
-	Manufacturer,
-	SerialNumber,
-	SystemSnapshot
+public  interface OperatingSystemObject
+
 	{
 }

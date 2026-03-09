@@ -1,6 +1,7 @@
 package io.joshuasalcedo.os.domain.hardware;
 
 import io.joshuasalcedo.os.domain.Manufacturer;
+import io.joshuasalcedo.os.domain.computer.OSEnvironment;
 
 import java.time.Instant;
 import java.util.Objects;
@@ -19,7 +20,8 @@ public record OperatingSystemInfo(
         int threadCount,
         Instant bootTime,
         long uptimeSeconds,
-        boolean elevated
+        boolean elevated,
+        OSEnvironment osEnvironment
 ) implements OSHardwareObject {
 
     public OperatingSystemInfo {
@@ -36,9 +38,5 @@ public record OperatingSystemInfo(
         return String.format("%dh %dm", hours, minutes);
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s %s %s (%d-bit), uptime: %s",
-                manufacturer, family, versionInfo, bitness, uptimeFormatted());
-    }
+
 }

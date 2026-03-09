@@ -1,0 +1,1 @@
+tagSearchIndex = [{"l":"Package Structure","h":"package io.joshuasalcedo.os.application","k":"16","u":"io/joshuasalcedo/os/application/package-summary.html#package-structure-heading"},{"l":"Spring Integration","h":"package io.joshuasalcedo.os.application","k":"16","u":"io/joshuasalcedo/os/application/package-summary.html#spring-integration-heading"}];updateSearchResults();

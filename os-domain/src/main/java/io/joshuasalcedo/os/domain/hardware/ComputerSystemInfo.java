@@ -2,6 +2,7 @@ package io.joshuasalcedo.os.domain.hardware;
 
 import io.joshuasalcedo.os.domain.Manufacturer;
 import io.joshuasalcedo.os.domain.SerialNumber;
+import io.joshuasalcedo.os.domain.computer.PhysicalComputerId;
 
 import java.util.Objects;
 
@@ -17,9 +18,10 @@ public record ComputerSystemInfo(
         BaseboardInfo baseboard
 ) implements OSHardwareObject {
 
-    public ComputerSystemInfo {
-        Objects.requireNonNull(manufacturer, "System manufacturer must not be null");
-        Objects.requireNonNull(model, "System model must not be null");
+
+
+    public PhysicalComputerId physicalComputerId(OperatingSystemInfo systemInfo) {
+        return PhysicalComputerId.from(this,systemInfo);
     }
 
     /**
